@@ -1,0 +1,22 @@
+{
+  "name": "sentinel-ai-backend",
+  "version": "1.0.0",
+  "description": "Sentinel AI - Network Traffic Anomaly & Behaviour Analysis Backend API",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "node --watch main.js",
+    "analyze": "node runAnalysis.js",
+    "eval": "node runAnalysis.js",
+    "test": "node --test ../tests/backend/*.test.js ../tests/integration/*.test.js"
+  },
+  "keywords": [
+    "cybersecurity",
+    "detection-engine",
+    "sentinel-ai",
+    "soc-backend"
+  ],
+  "author": "Sentinel AI Team",
+  "license": "Apache-2.0"
+}

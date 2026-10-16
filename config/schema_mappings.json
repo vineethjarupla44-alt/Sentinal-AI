@@ -1,0 +1,55 @@
+{
+  "schemas": {
+    "zeek_conn_log": {
+      "name": "Zeek/Bro Connection Log (conn.log)",
+      "description": "Standard Zeek/Bro network sensor CSV output",
+      "mapping": {
+        "record_id": "uid",
+        "timestamp": "ts",
+        "src_ip": "id.orig_h",
+        "src_port": "id.orig_p",
+        "dst_ip": "id.resp_h",
+        "dst_port": "id.resp_p",
+        "protocol": "proto",
+        "bytes_out": "orig_bytes",
+        "bytes_in": "resp_bytes",
+        "duration": "duration",
+        "conn_state": "conn_state",
+        "label": "label"
+      },
+      "defaults": {
+        "action": "ALLOW",
+        "bytes_out": 0,
+        "bytes_in": 0,
+        "duration": 0,
+        "protocol": "TCP"
+      }
+    },
+    "enterprise_firewall_vpc": {
+      "name": "Enterprise NGFW / Cloud VPC Flow Log",
+      "description": "Palo Alto / AWS VPC Flow / Azure NSG CSV export schema",
+      "mapping": {
+        "record_id": "session_id",
+        "timestamp": "timestamp",
+        "src_ip": "src_ip",
+        "src_port": "src_port",
+        "dst_ip": "dst_ip",
+        "dst_port": "dst_port",
+        "protocol": "protocol",
+        "bytes_out": "bytes_sent",
+        "bytes_in": "bytes_received",
+        "action": "action",
+        "duration": "elapsed_time",
+        "label": "ground_truth_label"
+      },
+      "defaults": {
+        "conn_state": "ESTABLISHED",
+        "bytes_out": 0,
+        "bytes_in": 0,
+        "duration": 0,
+        "protocol": "TCP",
+        "action": "ALLOW"
+      }
+    }
+  }
+}

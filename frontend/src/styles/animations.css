@@ -1,0 +1,63 @@
+/**
+ * Sentinel AI - Micro-animations & Transitions
+ * Subtle, high-performance GPU-accelerated effects
+ */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 16px rgba(164, 119, 245, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(164, 119, 245, 0.45);
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInScale var(--transition-smooth) forwards;
+}
+
+.pulse-dot {
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+.glow-card {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+.skeleton-loading {
+  background: linear-gradient(90deg, rgba(43, 22, 71, 0.4) 25%, rgba(65, 33, 105, 0.6) 50%, rgba(43, 22, 71, 0.4) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: var(--radius-sm);
+}

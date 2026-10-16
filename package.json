@@ -1,0 +1,25 @@
+{
+  "name": "sentinel-adaptive-detection",
+  "version": "1.0.0",
+  "description": "Adaptive Network Traffic Anomaly & Behaviour Analysis Engine with Log Compatibility",
+  "type": "module",
+  "main": "backend/main.js",
+  "scripts": {
+    "test": "node --test tests/backend/*.test.js tests/integration/*.test.js tests/frontend/*.test.js",
+    "backend": "node backend/main.js",
+    "frontend": "node frontend/server.js",
+    "analyze": "node backend/runAnalysis.js",
+    "eval": "node backend/runAnalysis.js",
+    "dashboard": "node backend/main.js"
+  },
+  "keywords": [
+    "cybersecurity",
+    "ids",
+    "network-anomaly",
+    "adaptive-detection",
+    "soc",
+    "flow-normalization"
+  ],
+  "author": "Sentinel AI Team",
+  "license": "Apache-2.0"
+}

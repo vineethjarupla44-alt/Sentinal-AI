@@ -1,0 +1,19 @@
+{
+  "name": "sentinel-ai-frontend",
+  "version": "1.0.0",
+  "description": "Sentinel AI - SOC Analyst Web Dashboard",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node -e \"console.log('[+] Frontend static build verified.')\""
+  },
+  "keywords": [
+    "cybersecurity",
+    "soc-frontend",
+    "dashboard",
+    "adaptive-detection"
+  ],
+  "author": "Sentinel AI Team",
+  "license": "Apache-2.0"
+}

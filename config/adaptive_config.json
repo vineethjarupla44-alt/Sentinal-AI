@@ -1,0 +1,134 @@
+{
+  "system_version": "1.0.0",
+  "policy_name": "Enterprise SOC Adaptive Baselining & Context Policy",
+  "approved_security_scanners": [
+    {
+      "ip": "10.0.50.5",
+      "hostname": "vuln-scanner-01.corp.internal",
+      "vendor": "Tenable Nessus",
+      "authorized_ports": [21, 22, 23, 25, 53, 80, 110, 135, 139, 143, 443, 445, 1433, 3306, 3389, 8080],
+      "active_schedule_utc": {
+        "start_hour": 2,
+        "end_hour": 6
+      },
+      "max_mitigation_factor": 0.80,
+      "tag": "AUTH_SEC_SCANNER"
+    },
+    {
+      "ip": "10.0.50.6",
+      "hostname": "qualys-sensor-internal",
+      "vendor": "Qualys",
+      "authorized_ports": "ALL",
+      "active_schedule_utc": {
+        "start_hour": 0,
+        "end_hour": 5
+      },
+      "max_mitigation_factor": 0.85,
+      "tag": "AUTH_SEC_SCANNER"
+    }
+  ],
+  "large_nightly_backups": [
+    {
+      "name": "Database Cluster to S3/SAN Backup",
+      "src_ip": "10.0.20.15",
+      "dst_ip": "10.0.99.100",
+      "port": 445,
+      "protocol": "TCP",
+      "scheduled_window_utc": {
+        "start_hour": 1,
+        "end_hour": 4
+      },
+      "expected_min_bytes": 10000000,
+      "max_mitigation_factor": 0.85,
+      "tag": "AUTH_NIGHTLY_BACKUP"
+    },
+    {
+      "name": "Offsite Archive Replication",
+      "src_ip": "10.0.20.25",
+      "dst_ip": "10.0.99.105",
+      "port": 873,
+      "protocol": "TCP",
+      "scheduled_window_utc": {
+        "start_hour": 2,
+        "end_hour": 5
+      },
+      "expected_min_bytes": 5000000,
+      "max_mitigation_factor": 0.80,
+      "tag": "AUTH_NIGHTLY_BACKUP"
+    }
+  ],
+  "maintenance_windows": [
+    {
+      "id": "MW-WEEKEND-MAIN",
+      "name": "Weekend Infrastructure Patching & Maintenance",
+      "days_of_week": [0, 6],
+      "start_hour_utc": 0,
+      "end_hour_utc": 6,
+      "mitigation_factor": 0.50
+    },
+    {
+      "id": "MW-WEEKDAY-NIGHT",
+      "name": "Weekday Nightly Maintenance",
+      "days_of_week": [1, 2, 3, 4, 5],
+      "start_hour_utc": 1,
+      "end_hour_utc": 4,
+      "mitigation_factor": 0.40
+    }
+  ],
+  "patch_servers": [
+    {
+      "ip": "10.0.10.20",
+      "hostname": "wsus-patch-master",
+      "service": "Windows Server Update Services",
+      "ports": [80, 443, 8530, 8531],
+      "allowed_dest_subnets": ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"],
+      "max_mitigation_factor": 0.75,
+      "tag": "AUTH_PATCH_DISTRIBUTION"
+    }
+  ],
+  "trusted_activity": [
+    {
+      "ip": "10.0.0.10",
+      "hostname": "dc-01.corp.internal",
+      "role": "Domain Controller / Kerberos / DNS",
+      "ports": [53, 88, 135, 389, 445, 636, 3268]
+    },
+    {
+      "ip": "10.0.0.11",
+      "hostname": "dc-02.corp.internal",
+      "role": "Domain Controller / Kerberos / DNS",
+      "ports": [53, 88, 135, 389, 445, 636, 3268]
+    },
+    {
+      "ip": "10.0.0.5",
+      "hostname": "ntp-internal.corp.internal",
+      "role": "NTP Time Server",
+      "ports": [123]
+    }
+  ],
+  "detection_thresholds": {
+    "port_scan": {
+      "window_seconds": 60,
+      "min_distinct_ports": 8,
+      "high_severity_port_count": 20,
+      "base_severity_score": 35
+    },
+    "network_sweep": {
+      "window_seconds": 60,
+      "min_distinct_hosts": 6,
+      "high_severity_host_count": 15,
+      "base_severity_score": 40
+    },
+    "lateral_movement": {
+      "window_seconds": 180,
+      "fanout_threshold": 3,
+      "admin_ports": [22, 135, 445, 3389, 5985, 5986],
+      "base_severity_score": 50
+    }
+  },
+  "prioritization_weights": {
+    "multi_rule_correlation_multiplier": 1.25,
+    "high_value_asset_bonus": 15,
+    "unexplained_evidence_penalty": 20
+  }
+}

@@ -1,0 +1,78 @@
+/**
+ * Sentinel AI - Google Stitch Design Tokens
+ * Color Palette, Typography, Elevations, Glassmorphism & Transitions
+ * Inspired by reference designs (Dark Plum, Midnight Purple, Electric Lavender, Cyan)
+ */
+
+:root {
+  /* Canvas & Background Surfaces */
+  --bg-canvas: #120A1D;
+  --bg-primary: #180D28;
+  --bg-secondary: #221238;
+  --bg-card: #2B1647;
+  --bg-card-hover: #341B56;
+  --bg-card-subtle: rgba(43, 22, 71, 0.55);
+  --bg-glass: rgba(34, 18, 56, 0.72);
+  --bg-glass-card: rgba(43, 22, 71, 0.65);
+  --bg-glass-input: rgba(18, 10, 29, 0.6);
+  --bg-glass-pill: rgba(164, 119, 245, 0.12);
+
+  /* Primary Accent & Gradients */
+  --accent-primary: #A477F5;
+  --accent-primary-hover: #B791FA;
+  --accent-highlight: #C5A4FF;
+  --accent-violet: #8B5CF6;
+  --accent-cyan: #58D7E8;
+  --accent-cyan-subtle: rgba(88, 215, 232, 0.15);
+  --accent-coral: #FF8A48;
+  --accent-coral-subtle: rgba(255, 138, 72, 0.15);
+  --accent-emerald: #34D399;
+  --accent-emerald-subtle: rgba(52, 211, 153, 0.15);
+  --accent-crimson: #EF4444;
+  --accent-crimson-subtle: rgba(239, 68, 68, 0.15);
+
+  /* Linear Gradients */
+  --grad-primary-button: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+  --grad-primary-hover: linear-gradient(135deg, #8B5CF6 0%, #C084FC 100%);
+  --grad-card-glow: linear-gradient(135deg, rgba(164, 119, 245, 0.15) 0%, rgba(88, 215, 232, 0.05) 100%);
+  --grad-hero-glow: radial-gradient(circle at 50% 0%, rgba(164, 119, 245, 0.22) 0%, rgba(18, 10, 29, 0) 70%);
+  --grad-badge-cyan: linear-gradient(135deg, rgba(88, 215, 232, 0.2) 0%, rgba(88, 215, 232, 0.05) 100%);
+  --grad-badge-violet: linear-gradient(135deg, rgba(164, 119, 245, 0.25) 0%, rgba(164, 119, 245, 0.08) 100%);
+  --grad-badge-orange: linear-gradient(135deg, rgba(255, 138, 72, 0.25) 0%, rgba(255, 138, 72, 0.08) 100%);
+
+  /* Borders & Highlights */
+  --border-subtle: rgba(164, 119, 245, 0.14);
+  --border-card: rgba(164, 119, 245, 0.2);
+  --border-card-hover: rgba(197, 164, 255, 0.45);
+  --border-focus: #A477F5;
+  --border-cyan: rgba(88, 215, 232, 0.35);
+
+  /* Text Colors */
+  --text-primary: #F7F2FF;
+  --text-secondary: #B9A9D0;
+  --text-muted: #84729E;
+  --text-inverse: #0D0616;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Elevations & Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-glow-violet: 0 0 24px rgba(164, 119, 245, 0.25);
+  --shadow-glow-cyan: 0 0 24px rgba(88, 215, 232, 0.25);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
