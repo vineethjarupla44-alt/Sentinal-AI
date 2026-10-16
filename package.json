@@ -5,7 +5,8 @@
   "type": "module",
   "main": "backend/main.js",
   "scripts": {
-    "test": "node --test tests/backend/*.test.js tests/integration/*.test.js tests/frontend/*.test.js",
+    "test": "node --test tests/backend/*.test.js tests/integration/*.test.js tests/frontend/*.test.js tests/validation/*.test.js",
+    "test:validate": "node backend/runValidation.js",
     "backend": "node backend/main.js",
     "frontend": "node frontend/server.js",
     "analyze": "node backend/runAnalysis.js",

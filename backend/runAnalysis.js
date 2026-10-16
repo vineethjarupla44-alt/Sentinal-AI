@@ -83,10 +83,7 @@ export function runCLI() {
   console.log(`  [*] Recall Status: ${evaluation.improvement.recall_preserved ? '100% genuine attacks preserved without suppression' : 'Degraded'}`);
 
   // 4. Generate and save Markdown Report
-  let docsDir = path.resolve('docs');
-  if (!fs.existsSync(docsDir)) {
-    docsDir = path.resolve('..', 'docs');
-  }
+  const docsDir = path.resolve(__dirname, '..', 'docs');
   if (!fs.existsSync(docsDir)) {
     fs.mkdirSync(docsDir, { recursive: true });
   }
