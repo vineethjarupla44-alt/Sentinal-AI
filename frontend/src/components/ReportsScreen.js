@@ -77,7 +77,7 @@ export function renderReportsScreen(container, currentData) {
             <span class="kpi-dot dot-violet"></span>
           </div>
           <div class="kpi-value-row">
-            <span class="kpi-number" style="color: #A477F5;">${ctx.recall !== undefined ? `${(ctx.recall * 100).toFixed(0)}%` : '100%'}</span>
+            <span class="kpi-number" style="color: #69E2C2;">${ctx.recall !== undefined ? `${(ctx.recall * 100).toFixed(0)}%` : '100%'}</span>
             <span class="kpi-delta delta-positive">Zero Missed</span>
           </div>
           <span class="kpi-footnote">100% recall on attacks</span>

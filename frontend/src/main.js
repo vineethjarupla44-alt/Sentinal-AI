@@ -14,6 +14,7 @@ import { renderConfigScreen } from './components/ConfigScreen.js';
 import { renderReportsScreen } from './components/ReportsScreen.js';
 import { createUploadModal } from './components/UploadModal.js';
 import { showToast } from './components/Toast.js';
+import { initBackground3D } from './components/Background3D.js';
 
 // Application State
 let currentScreen = 'dashboard';
@@ -199,6 +200,7 @@ async function handleRefresh() {
  * Bootstrap Application
  */
 async function initApp() {
+  initBackground3D();
   updateNav();
   setLoadingState(true, 'Initializing Sentinel AI detection pipeline...');
 

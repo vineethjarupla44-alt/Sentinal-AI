@@ -23,9 +23,9 @@ export function renderNavigation(container, currentScreen, onNavigate, onDataset
         <div class="nav-brand">
           <div class="nav-logo-mark">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#C5A4FF"/>
-              <path d="M2 17l10 5 10-5" stroke="#A477F5"/>
-              <path d="M2 12l10 5 10-5" stroke="#58D7E8"/>
+              <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#A8F5E1"/>
+              <path d="M2 17l10 5 10-5" stroke="#69E2C2"/>
+              <path d="M2 12l10 5 10-5" stroke="#65D9DF"/>
             </svg>
           </div>
           <div class="nav-brand-text">

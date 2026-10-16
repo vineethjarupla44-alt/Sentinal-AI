@@ -125,18 +125,17 @@ npm run analyze
 
 ## 5. How to Run Tests
 
-Sentinel AI includes a complete automated test suite organized across unit, integration, and contract tests:
+Sentinel AI includes a complete automated test suite organized across unit, integration, and contract tests (29 passing tests, 0 failures):
 
 ```bash
-# Run all 19 tests from the root directory
-npm test
-
-# Or run tests directly from the backend folder
-cd backend
+# Run all 29 automated tests from the root directory
 npm test
 ```
 
 ### Test Suite Structure
+- `tests/backend/hostBaseline.test.js`: Validates temporal host baselining, Z-score deviations, insufficient history handling, and backup mitigations.
+- `tests/backend/beaconing.test.js`: Validates periodic C2 beaconing detection, jitter CV calculation, and legitimate NTP/DC disambiguation.
+- `tests/backend/timelineAndGraph.test.js`: Validates chronological timeline sequencing, attack-stage hypotheses, and directed communication graph construction.
 - `tests/backend/mapper.test.js`: Validates RFC-4180 parsing, schema detection, duplicate suppression, and safe defaults.
 - `tests/backend/detection.test.js`: Validates vertical port scans, horizontal network sweeps, and lateral spreading indicators.
 - `tests/backend/context.test.js`: Validates approved security scanners, scheduled backups, WSUS patch servers, and maintenance windows.
@@ -152,6 +151,8 @@ npm test
 2. **Via Terminal CLI**:
    ```bash
    npm run eval
+   # or
+   npm run analyze
    ```
    Outputs the empirical confusion matrix and before/after metrics table directly to the console.
 3. **In the Markdown Report**: Read the complete evaluation benchmark in [`docs/EVALUATION_REPORT.md`](file:///c:/Users/sonal/OneDrive/Desktop/Sentinal%20AI/docs/EVALUATION_REPORT.md).
@@ -160,7 +161,13 @@ npm test
 
 ## 7. Key Features Explained for Beginners
 
+- **Advanced Anomaly Visualizations (Screen 3 Sub-tabs)**:
+  - **Baseline & Deviation**: Visualizes host traffic against learned normal statistical envelopes with metric-level Z-scores and deviation percentages. Explicitly handles insufficient history without false alerts.
+  - **Beaconing & Intervals**: Detects repetitive automated callbacks, calculating $\Delta t$ intervals, mean/median timings, and Coefficient of Variation ($CV = \sigma / \mu$) jitter to identify stealth C2 channels vs NTP/DNS sync.
+  - **Attack Timeline**: Chronological progression with delta timestamps and evidence-backed attack-stage hypotheses (`Reconnaissance`, `Lateral Movement`, `C2`, `Unusual Outbound Transfer`, `Unclassified`).
+  - **Network Communication Graph**: Interactive directed SVG graph showing host nodes and flow edges with line thickness scaled to data volume and suspicious channels highlighted in coral/red.
 - **Log Compatibility**: You don't need separate tools for firewall logs and Zeek logs. Our column mapping layer (`config/dataset_mapping.json`) converts both into one internal format.
 - **Evidence Preservation**: When a Nessus vulnerability scanner or nightly backup triggers a port scan or sweep rule, Sentinel AI doesn't delete the alert. It deprioritizes the score, explains why, and keeps 100% of the raw flow records for audit compliance.
 - **Adaptive Context Replay**: Shows analysts the raw naive finding versus the context-adjusted finding side-by-side, detailing exactly what points were deducted and highlighting any **unexplained deviations** (such as unauthorized ports or off-schedule activity).
 - **0–100 Mathematical Prioritization**: Correlates multiple attack behaviors from the same threat actor and assigns an auditable prioritization score.
+

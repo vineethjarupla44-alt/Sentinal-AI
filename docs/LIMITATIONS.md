@@ -23,3 +23,21 @@
 
 ### D. Single-Hop Lateral Movement Ingress Correlation
 - The lateral movement rule correlates preceding inbound administrative traffic within 5 minutes prior to outbound fanout. In sophisticated advanced persistent threats (APTs), dwell time between initial compromise and lateral movement may span hours or days, requiring persistent graph database tracking (e.g. Neo4j).
+
+### E. Attack-Stage Hypotheses vs Forensic Ground-Truth
+- Attack stage classifications displayed in the chronological incident timeline (`Reconnaissance`, `Lateral Movement`, `Command and Control (C2)`, `Unusual Outbound Transfer`) are **analytical hypotheses** inferred from observable traffic characteristics (port distributions, fan-out ratios, directionality, and timing regularity).
+- These hypotheses are designed to accelerate SOC analyst triage, alert clustering, and initial scoping. They do **not** constitute forensically proven ground-truth or attribution, which requires endpoint memory analysis, disk forensics, malware reverse engineering, or decrypted payload inspection.
+
+### F. Host Baseline Statistical History Requirements
+- Statistical host traffic baselining calculates expected means and standard deviations across observed telemetry windows.
+- To prevent false alarms on newly provisioned machines or sparse network segments, the engine enforces a strict minimum threshold of 3 observation windows ($N \ge 3$).
+- Hosts with insufficient observations are explicitly assigned the status `INSUFFICIENT_HISTORY` with zero score penalty or deviation trigger, avoiding premature anomaly declarations until a valid statistical profile is established.
+
+### G. Candidate Beaconing Detection & Jitter Sensitivity
+- The candidate beaconing detector analyzes inter-arrival intervals ($\Delta t$) and Coefficient of Variation ($CV = \sigma / \mu$) across repetitive connections.
+- Advanced C2 frameworks (e.g., Cobalt Strike, Mythic) can be configured with aggressive sleep jitter exceeding 70%–90% or multi-hour callback intervals. Detecting such highly irregular or ultra-low frequency beaconing requires aggregating multi-day or multi-week historical NetFlow archives, which exceeds the memory footprint of single-batch in-memory processing.
+
+### H. Network Topology Graph Scalability
+- The interactive directed communication graph is optimized for incident-scoped topologies (up to 150 communicating hosts and channels per incident).
+- Rendering network-wide enterprise graphs containing tens of thousands of active nodes simultaneously requires WebGL canvas acceleration or hierarchical community clustering (e.g., Louvain modularity) to prevent DOM overhead.
+

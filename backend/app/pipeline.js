@@ -6,6 +6,10 @@ import { runAllDetectionRules } from './detectionRules.js';
 import { applyContextToDetection } from './trustedActivity.js';
 import { groupAndScoreIncidents } from './incidentEngine.js';
 import { generateAdaptiveContextReplay } from './contextReplay.js';
+import { calculateHostBaselines, evaluateHostTrafficDeviation } from './hostBaseline.js';
+import { detectBeaconing } from './beaconingDetector.js';
+import { buildIncidentTimeline } from './timelineEngine.js';
+import { buildIncidentCommunicationGraph } from './graphEngine.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -68,6 +72,10 @@ export class SentinelPipeline {
     // 2. Detection Rules Execution (Naive/Volumetric)
     const rawDetections = runAllDetectionRules(records, this.config);
 
+    // 2b. Behavioral Baselines & Beaconing Detection
+    const hostBaselines = calculateHostBaselines(records, this.config);
+    const beaconingFindings = detectBeaconing(records, this.config);
+
     // 3. Evidence-Preserving Context Evaluation
     const contextualizedDetections = rawDetections.map(det =>
       applyContextToDetection(det, this.config)
@@ -75,6 +83,32 @@ export class SentinelPipeline {
 
     // 4. Incident Grouping & 0-100 Prioritization Scoring
     const incidents = groupAndScoreIncidents(contextualizedDetections, this.config);
+
+    // 4b. Attach Baseline Deviations, Timelines & Communication Graphs to each Incident
+    for (const incident of incidents) {
+      const incidentFlows = records.filter(r => (incident.record_ids || []).includes(r.record_id));
+      incident.baseline_deviation = evaluateHostTrafficDeviation(
+        incident.source_entity,
+        incidentFlows,
+        hostBaselines,
+        this.config
+      );
+      incident.timeline_events = buildIncidentTimeline(
+        incident,
+        records,
+        contextualizedDetections,
+        beaconingFindings
+      );
+      incident.communication_graph = buildIncidentCommunicationGraph(
+        incident,
+        records,
+        contextualizedDetections,
+        this.config
+      );
+      incident.beaconing_findings = beaconingFindings.filter(
+        b => b.source_ip === incident.source_entity
+      );
+    }
 
     // 5. Adaptive Context Replay Generation
     const contextReplays = generateAdaptiveContextReplay(
@@ -94,6 +128,12 @@ export class SentinelPipeline {
       d => d.unexplained_evidence.length > 0
     ).length;
 
+    // Convert hostBaselines Map to serializable object
+    const serializableBaselines = {};
+    for (const [k, v] of hostBaselines.entries()) {
+      serializableBaselines[k] = v;
+    }
+
     return {
       success: true,
       execution_time_ms: executionTimeMs,
@@ -104,6 +144,8 @@ export class SentinelPipeline {
       contextualized_detections: contextualizedDetections,
       incidents,
       context_replays: contextReplays,
+      host_baselines: serializableBaselines,
+      beaconing_findings: beaconingFindings,
       metrics_summary: {
         total_records_processed: records.length,
         raw_detections_count: rawDetections.length,

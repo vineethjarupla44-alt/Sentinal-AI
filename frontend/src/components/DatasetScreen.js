@@ -98,7 +98,7 @@ export function renderDatasetScreen(container, currentData, currentConfig, onSel
           <div id="dragDropZone" class="drag-drop-area">
             <input type="file" id="datasetFileInput" accept=".csv,.txt" style="display: none;" />
             <div class="drop-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A477F5" stroke-width="2">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#69E2C2" stroke-width="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="17 8 12 3 7 8"/>
                 <line x1="12" y1="3" x2="12" y2="15"/>

@@ -88,17 +88,17 @@ export function exportExecutiveHTMLReport(pipelineData) {
   const incidentRowsHtml = incidents.map(inc => {
     const rep = (result.context_replays || []).find(r => r.incident_id === inc.incident_id);
     const unexp = rep?.unexplained_evidence?.count || 0;
-    const severityColor = inc.severity === 'CRITICAL' ? '#EF4444' : inc.severity === 'HIGH' ? '#FF8A48' : inc.severity === 'MEDIUM' ? '#EAB308' : '#58D7E8';
+    const severityColor = inc.severity === 'CRITICAL' ? '#F87171' : inc.severity === 'HIGH' ? '#FF8057' : inc.severity === 'MEDIUM' ? '#EAB308' : '#65D9DF';
 
     return `
-      <tr style="border-bottom: 1px solid rgba(164, 119, 245, 0.15);">
-        <td style="padding: 12px; font-family: monospace; color: #C5A4FF;">${inc.incident_id}</td>
+      <tr style="border-bottom: 1px solid rgba(105, 226, 194, 0.15);">
+        <td style="padding: 12px; font-family: monospace; color: #69E2C2;">${inc.incident_id}</td>
         <td style="padding: 12px; font-weight: 600;">${inc.source_entity}</td>
         <td style="padding: 12px;"><span style="background: ${severityColor}20; color: ${severityColor}; border: 1px solid ${severityColor}60; padding: 3px 8px; border-radius: 9999px; font-size: 11px; font-weight: 700;">${inc.severity} (${inc.prioritization_score})</span></td>
-        <td style="padding: 12px;">${inc.raw_score} &rarr; <strong style="color: #58D7E8;">${inc.prioritization_score}</strong></td>
+        <td style="padding: 12px;">${inc.raw_score} &rarr; <strong style="color: #65D9DF;">${inc.prioritization_score}</strong></td>
         <td style="padding: 12px;">${inc.record_count} flows</td>
-        <td style="padding: 12px; font-size: 12px; color: #B9A9D0;">${inc.distinct_rules_triggered.join(', ')}</td>
-        <td style="padding: 12px; font-size: 12px; color: ${unexp > 0 ? '#EF4444' : '#34D399'}; font-weight: 600;">${unexp > 0 ? `DEVIATION (${unexp})` : 'Compliant'}</td>
+        <td style="padding: 12px; font-size: 12px; color: #A2C2BC;">${inc.distinct_rules_triggered.join(', ')}</td>
+        <td style="padding: 12px; font-size: 12px; color: ${unexp > 0 ? '#F87171' : '#4ADE80'}; font-weight: 600;">${unexp > 0 ? `DEVIATION (${unexp})` : 'Compliant'}</td>
       </tr>
     `;
   }).join('');
@@ -110,8 +110,8 @@ export function exportExecutiveHTMLReport(pipelineData) {
   <title>Sentinel AI - Executive Forensic Evaluation Report</title>
   <style>
     body {
-      background-color: #120A1D;
-      color: #F7F2FF;
+      background-color: #0A1517;
+      color: #E6F5F2;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 32px 24px;
@@ -120,14 +120,14 @@ export function exportExecutiveHTMLReport(pipelineData) {
     .container {
       max-width: 1040px;
       margin: 0 auto;
-      background: #1B102B;
-      border: 1px solid rgba(164, 119, 245, 0.25);
+      background: #0D1C1E;
+      border: 1px solid rgba(105, 226, 194, 0.25);
       border-radius: 20px;
       padding: 40px;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
     }
     .header {
-      border-bottom: 1px solid rgba(164, 119, 245, 0.2);
+      border-bottom: 1px solid rgba(105, 226, 194, 0.2);
       padding-bottom: 24px;
       margin-bottom: 32px;
       display: flex;
@@ -138,18 +138,18 @@ export function exportExecutiveHTMLReport(pipelineData) {
       font-size: 26px;
       font-weight: 800;
       letter-spacing: -0.02em;
-      color: #F7F2FF;
+      color: #E6F5F2;
       margin: 0 0 6px 0;
     }
     .subtitle {
-      color: #B9A9D0;
+      color: #A2C2BC;
       font-size: 14px;
       margin: 0;
     }
     .badge {
-      background: rgba(164, 119, 245, 0.15);
-      border: 1px solid rgba(164, 119, 245, 0.3);
-      color: #C5A4FF;
+      background: rgba(105, 226, 194, 0.15);
+      border: 1px solid rgba(105, 226, 194, 0.3);
+      color: #69E2C2;
       padding: 6px 14px;
       border-radius: 9999px;
       font-size: 12px;
@@ -162,8 +162,8 @@ export function exportExecutiveHTMLReport(pipelineData) {
       margin-bottom: 32px;
     }
     .card {
-      background: #24143F;
-      border: 1px solid rgba(164, 119, 245, 0.15);
+      background: #102124;
+      border: 1px solid rgba(105, 226, 194, 0.15);
       border-radius: 14px;
       padding: 18px;
     }
@@ -171,16 +171,16 @@ export function exportExecutiveHTMLReport(pipelineData) {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: #B9A9D0;
+      color: #A2C2BC;
       margin-bottom: 6px;
     }
     .card-value {
       font-size: 24px;
       font-weight: 700;
-      color: #F7F2FF;
+      color: #E6F5F2;
     }
     .highlight {
-      color: #58D7E8;
+      color: #65D9DF;
     }
     table {
       width: 100%;
@@ -191,27 +191,27 @@ export function exportExecutiveHTMLReport(pipelineData) {
     th {
       text-align: left;
       padding: 10px 12px;
-      background: #2D1948;
-      color: #C5A4FF;
+      background: #162E33;
+      color: #69E2C2;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .notice {
-      background: rgba(88, 215, 232, 0.08);
-      border-left: 3px solid #58D7E8;
+      background: rgba(101, 217, 223, 0.08);
+      border-left: 3px solid #65D9DF;
       padding: 14px 18px;
       border-radius: 8px;
       margin: 24px 0;
       font-size: 13px;
-      color: #B9A9D0;
+      color: #A2C2BC;
     }
     .footer {
       margin-top: 40px;
       padding-top: 20px;
-      border-top: 1px solid rgba(164, 119, 245, 0.15);
+      border-top: 1px solid rgba(105, 226, 194, 0.15);
       font-size: 12px;
-      color: #84729E;
+      color: #688A85;
       text-align: center;
     }
   </style>

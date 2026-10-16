@@ -43,7 +43,7 @@ export function createFlowRecord(data = {}) {
     protocol: String(data.protocol || 'TCP').toUpperCase(),
     bytes_out: bytesOut,
     bytes_in: bytesIn,
-    total_bytes: bytesOut + bytesIn,
+    total_bytes: Number(data.total_bytes) || (bytesOut + bytesIn),
     duration: Number(data.duration) || 0,
     conn_state: String(data.conn_state || 'UNKNOWN').toUpperCase(),
     action: String(data.action || 'ALLOW').toUpperCase(),
