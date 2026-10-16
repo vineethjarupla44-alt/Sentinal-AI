@@ -12,7 +12,7 @@ test('Frontend API Contract: Backend health endpoint responds with UP status', a
     assert.equal(res.status, 200);
     const data = await res.json();
     assert.equal(data.status, 'UP');
-    assert.equal(data.service, 'Sentinel AI Backend API');
+    assert.equal(data.service, 'TraceGuard Backend API');
   } finally {
     server.close();
   }

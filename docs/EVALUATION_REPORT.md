@@ -1,7 +1,7 @@
 # Adaptive Detection Performance & False-Positive Reduction
 
 ## Executive Summary
-This empirical validation measures the effectiveness of the **Sentinel AI Adaptive Detection & Behaviour Analysis Engine** on normalized network flow datasets. The engine compares naive volumetric detection rules against context-aware adaptive baselining (incorporating approved scanners, maintenance windows, patch servers, and scheduled backups).
+This empirical validation measures the effectiveness of the **TraceGuard Adaptive Detection & Behaviour Analysis Engine** on normalized network flow datasets. The engine compares naive volumetric detection rules against context-aware adaptive baselining (incorporating approved scanners, maintenance windows, patch servers, and scheduled backups).
 
 ---
 
@@ -15,7 +15,7 @@ This empirical validation measures the effectiveness of the **Sentinel AI Adapti
 
 ## Empirical Comparison: Before vs After Adaptive Context Baselining
 
-| Metric | Stage 1: Naive Volumetric IDS | Stage 2: Context-Aware Sentinel AI | Improvement / Delta |
+| Metric | Stage 1: Naive Volumetric IDS | Stage 2: Context-Aware TraceGuard | Improvement / Delta |
 | :--- | :--- | :--- | :--- |
 | **True Positives (TP)** | 31 | 31 | Maintained (31/31) |
 | **False Positives (FP)** | 20 | 8 | **-12 FPs (60% reduction)** |

@@ -34,9 +34,9 @@ function findConfigFile(filenameList) {
 }
 
 /**
- * End-to-End Sentinel AI Detection Pipeline
+ * End-to-End TraceGuard Detection Pipeline
  */
-export class SentinelPipeline {
+export class TraceGuardPipeline {
   constructor(config = null, schemaMappings = null) {
     this.config = config || this.loadDefaultConfig();
     this.schemaMappings = schemaMappings || this.loadDefaultSchemaMappings();
@@ -189,3 +189,7 @@ export class SentinelPipeline {
     return this.process(content, forcedSchema, options);
   }
 }
+
+// Backward-compatible alias
+export { TraceGuardPipeline as SentinelPipeline };
+

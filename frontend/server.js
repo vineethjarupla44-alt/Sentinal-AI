@@ -44,6 +44,6 @@ const server = http.createServer((req, res) => {
 
 const PORT = process.env.PORT || 5173;
 server.listen(PORT, () => {
-  console.log(`[+] Sentinel AI Frontend Dashboard running at: http://localhost:${PORT}`);
+  console.log(`[+] TraceGuard Frontend Dashboard running at: http://localhost:${PORT}`);
   console.log(`    - Connected to Backend API at: http://localhost:3001`);
 });

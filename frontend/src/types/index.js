@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Frontend Type Definitions & Constants
+ * TraceGuard - Frontend Type Definitions & Constants
  */
 
 export const SeverityLevel = {

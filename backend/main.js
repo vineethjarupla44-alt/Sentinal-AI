@@ -2,13 +2,13 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SentinelPipeline } from './app/pipeline.js';
+import { TraceGuardPipeline } from './app/pipeline.js';
 import { evaluateDetectionPerformance } from './app/evaluation.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const pipeline = new SentinelPipeline();
+const pipeline = new TraceGuardPipeline();
 
 export function createServer() {
   return http.createServer((req, res) => {
@@ -31,7 +31,7 @@ export function createServer() {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({
         status: 'UP',
-        service: 'Sentinel AI Backend API',
+        service: 'TraceGuard Backend API',
         timestamp: new Date().toISOString()
       }));
       return;
@@ -42,7 +42,7 @@ export function createServer() {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({
         status: 'ONLINE',
-        engine: 'Sentinel AI Adaptive Detection Engine v1.0.0',
+        engine: 'TraceGuard Adaptive Detection Engine v1.0.0',
         config: pipeline.config,
         schemas: pipeline.schemaMappings
       }));
@@ -141,7 +141,7 @@ const server = createServer();
 
 if (process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('backend/main.js')) {
   server.listen(PORT, () => {
-    console.log(`[+] Sentinel AI Backend API running at: http://localhost:${PORT}`);
+    console.log(`[+] TraceGuard Backend API running at: http://localhost:${PORT}`);
     console.log(`    - Health check: http://localhost:${PORT}/health`);
     console.log(`    - Status & Config: http://localhost:${PORT}/api/status`);
     console.log(`    - Dataset Analysis: http://localhost:${PORT}/api/analyze?dataset=zeek`);

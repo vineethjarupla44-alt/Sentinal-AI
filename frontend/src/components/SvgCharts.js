@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Pure SVG Chart Components
+ * TraceGuard - Pure SVG Chart Components
  * High-performance, lightweight, responsive data visualizations
  * - Bezier curve area chart (Traffic vs Baseline)
  * - Multi-ring concentric radial gauge (Severity & Classification)

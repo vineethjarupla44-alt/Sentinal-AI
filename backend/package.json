@@ -1,7 +1,7 @@
 {
-  "name": "sentinel-ai-backend",
+  "name": "traceguard-backend",
   "version": "1.0.0",
-  "description": "Sentinel AI - Network Traffic Anomaly & Behaviour Analysis Backend API",
+  "description": "TraceGuard - Network Traffic Anomaly & Behaviour Analysis Backend API",
   "type": "module",
   "main": "main.js",
   "scripts": {
@@ -14,9 +14,9 @@
   "keywords": [
     "cybersecurity",
     "detection-engine",
-    "sentinel-ai",
+    "traceguard",
     "soc-backend"
   ],
-  "author": "Sentinel AI Team",
+  "author": "TraceGuard Team",
   "license": "Apache-2.0"
 }

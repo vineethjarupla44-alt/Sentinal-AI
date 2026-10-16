@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Screen 5: Configuration & Trusted Activity
+ * TraceGuard - Screen 5: Configuration & Trusted Activity
  * Friendly UI explorer for reading and inspecting organizational baselines:
  * - Approved security scanners
  * - Nightly backup schedules

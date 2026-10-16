@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Screen 3: Incident Investigation
+ * TraceGuard - Screen 3: Incident Investigation
  * Advanced SOC triage interface with 6 specialized analytical views:
  * 1. Overview & Rules (Risk Score Gauge, Mathematical Audit, Triggered Rules, Playbooks)
  * 2. Baseline & Deviation (Host traffic vs learned normal baseline envelope, Z-scores)

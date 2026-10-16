@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Core Type Definitions & Schemas
+ * TraceGuard - Core Type Definitions & Schemas
  * Standardized representations for Flow Records, Detections, Mitigations, and Incidents.
  */
 

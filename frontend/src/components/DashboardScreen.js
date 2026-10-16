@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Screen 1: Main Dashboard
+ * TraceGuard - Screen 1: Main Dashboard
  * Executive cybersecurity cockpit matching Reference Image 1 & 2
  * - Welcome banner & system readiness status
  * - Priority KPI cards with subtle indicator dots

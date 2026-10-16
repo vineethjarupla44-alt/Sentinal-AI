@@ -1,7 +1,7 @@
-# Sentinel AI: System Architecture & Design Guide
+# TraceGuard: System Architecture & Design Guide
 
 ## 1. System Overview
-**Sentinel AI** is a modular Network Traffic Anomaly & Behaviour Analysis platform designed for Security Operations Centers (SOCs). It features adaptive contextual baselining, dual-schema log normalization, evidence-preserving false-positive reduction, candidate beaconing detection, host baseline deviation envelopes, chronological attack timelines with stage hypotheses, interactive communication graphs, and an analyst-centric **Adaptive Context Replay** mechanism.
+**TraceGuard** is a modular Network Traffic Anomaly & Behaviour Analysis platform designed for Security Operations Centers (SOCs). It features adaptive contextual baselining, dual-schema log normalization, evidence-preserving false-positive reduction, candidate beaconing detection, host baseline deviation envelopes, chronological attack timelines with stage hypotheses, interactive communication graphs, and an analyst-centric **Adaptive Context Replay** mechanism.
 
 ---
 
@@ -9,7 +9,7 @@
 The project is strictly separated into modular, beginner-friendly components:
 
 ```
-Sentinel-AI/
+TraceGuard/
 ├── backend/                  # Detection engine & REST API service
 │   ├── app/
 │   │   ├── types.js          # Canonical FlowRecord & SOC severity types

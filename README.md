@@ -1,15 +1,15 @@
-# Sentinel AI: Network Traffic Anomaly & Behaviour Analysis
+# TraceGuard: Network Traffic Anomaly & Behaviour Analysis
 
 > **Adaptive Detection, Log Compatibility & Forensic Context Replay Platform**
 
-Sentinel AI is a beginner-friendly, modular cybersecurity platform that normalizes disparate network flow logs (Zeek `conn.log` and Enterprise Firewall / Cloud VPC logs), detects malicious traffic patterns (vertical port scans, horizontal network sweeps, and lateral spreading), and leverages external organizational context to achieve up to **100% false-positive reduction** on benign lookalikes without ever discarding forensic evidence.
+TraceGuard is a beginner-friendly, modular cybersecurity platform that normalizes disparate network flow logs (Zeek `conn.log` and Enterprise Firewall / Cloud VPC logs), detects malicious traffic patterns (vertical port scans, horizontal network sweeps, and lateral spreading), and leverages external organizational context to achieve up to **100% false-positive reduction** on benign lookalikes without ever discarding forensic evidence.
 
 ---
 
 ## 1. Project Directory Structure
 
 ```
-Sentinel-AI/
+TraceGuard/
 ├── backend/                  # Detection engine & REST API service
 │   ├── app/                  # Modular backend detection components
 │   │   ├── types.js          # Canonical FlowRecord & SOC severity types
@@ -125,7 +125,7 @@ npm run analyze
 
 ## 5. How to Run Tests
 
-Sentinel AI includes a complete automated test suite organized across unit, integration, and contract tests (29 passing tests, 0 failures):
+TraceGuard includes a complete automated test suite organized across unit, integration, and contract tests (29 passing tests, 0 failures):
 
 ```bash
 # Run all 29 automated tests from the root directory
@@ -167,7 +167,7 @@ npm test
   - **Attack Timeline**: Chronological progression with delta timestamps and evidence-backed attack-stage hypotheses (`Reconnaissance`, `Lateral Movement`, `C2`, `Unusual Outbound Transfer`, `Unclassified`).
   - **Network Communication Graph**: Interactive directed SVG graph showing host nodes and flow edges with line thickness scaled to data volume and suspicious channels highlighted in coral/red.
 - **Log Compatibility**: You don't need separate tools for firewall logs and Zeek logs. Our column mapping layer (`config/dataset_mapping.json`) converts both into one internal format.
-- **Evidence Preservation**: When a Nessus vulnerability scanner or nightly backup triggers a port scan or sweep rule, Sentinel AI doesn't delete the alert. It deprioritizes the score, explains why, and keeps 100% of the raw flow records for audit compliance.
+- **Evidence Preservation**: When a Nessus vulnerability scanner or nightly backup triggers a port scan or sweep rule, TraceGuard doesn't delete the alert. It deprioritizes the score, explains why, and keeps 100% of the raw flow records for audit compliance.
 - **Adaptive Context Replay**: Shows analysts the raw naive finding versus the context-adjusted finding side-by-side, detailing exactly what points were deducted and highlighting any **unexplained deviations** (such as unauthorized ports or off-schedule activity).
 - **0–100 Mathematical Prioritization**: Correlates multiple attack behaviors from the same threat actor and assigns an auditable prioritization score.
 

@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Toast Notification Service
+ * TraceGuard - Toast Notification Service
  * Renders sleek frosted floating notifications matching Stitch aesthetic
  */
 

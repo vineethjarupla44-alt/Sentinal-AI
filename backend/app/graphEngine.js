@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Incident Network Communication Graph Engine
+ * TraceGuard - Incident Network Communication Graph Engine
  * Builds node-link topology representing communicating computers and external endpoints
  * for incident forensics and visual inspection.
  */

@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Scientific Metrics Evaluator
+ * TraceGuard - Scientific Metrics Evaluator
  * Computes empirical Confusion Matrix, Precision, Recall, False Positive Rate (FPR),
  * and Before/After contextual false-positive reduction.
  */
@@ -128,7 +128,7 @@ export function generateMarkdownEvaluationReport(evaluationResults, title = "Ada
   return `# ${title}
 
 ## Executive Summary
-This empirical validation measures the effectiveness of the **Sentinel AI Adaptive Detection & Behaviour Analysis Engine** on normalized network flow datasets. The engine compares naive volumetric detection rules against context-aware adaptive baselining (incorporating approved scanners, maintenance windows, patch servers, and scheduled backups).
+This empirical validation measures the effectiveness of the **TraceGuard Adaptive Detection & Behaviour Analysis Engine** on normalized network flow datasets. The engine compares naive volumetric detection rules against context-aware adaptive baselining (incorporating approved scanners, maintenance windows, patch servers, and scheduled backups).
 
 ---
 
@@ -142,7 +142,7 @@ This empirical validation measures the effectiveness of the **Sentinel AI Adapti
 
 ## Empirical Comparison: Before vs After Adaptive Context Baselining
 
-| Metric | Stage 1: Naive Volumetric IDS | Stage 2: Context-Aware Sentinel AI | Improvement / Delta |
+| Metric | Stage 1: Naive Volumetric IDS | Stage 2: Context-Aware TraceGuard | Improvement / Delta |
 | :--- | :--- | :--- | :--- |
 | **True Positives (TP)** | ${naive_stage.tp} | ${context_aware_stage.tp} | Maintained (${context_aware_stage.tp}/${naive_stage.tp}) |
 | **False Positives (FP)** | ${naive_stage.fp} | ${context_aware_stage.fp} | **-${improvement.fp_reduced_count} FPs (${improvement.fp_reduction_percent}% reduction)** |

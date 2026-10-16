@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Host Behavioral Baseline Engine
+ * TraceGuard - Host Behavioral Baseline Engine
  * Learns normal operational profiles per host and identifies statistically significant deviations.
  *
  * Tracks metrics: flow counts, byte throughput, unique destinations, unique ports,

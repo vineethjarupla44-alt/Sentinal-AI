@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Screen 6: Reports & Empirical Evaluation
+ * TraceGuard - Screen 6: Reports & Empirical Evaluation
  * Scientific performance evaluation of the detection engine:
  * - Empirical Confusion Matrix & Metric Deltas (Precision, Recall, FPR, F1)
  * - Before vs After Context-Aware False Positive Reduction
@@ -96,12 +96,12 @@ export function renderReportsScreen(container, currentData) {
         </div>
       </div>
 
-      <!-- Main Benchmark Table: Naive IDS Mode vs Context-Aware Sentinel AI -->
+      <!-- Main Benchmark Table: Naive IDS Mode vs Context-Aware TraceGuard -->
       <div class="panel-stitch">
         <div class="panel-header-row">
           <div>
             <h2 class="panel-heading">Performance Comparison</h2>
-            <p class="panel-subheading">Traditional Detection vs Sentinel AI Smart Filter</p>
+            <p class="panel-subheading">Traditional Detection vs TraceGuard Smart Filter</p>
           </div>
           <span class="status-tag status-clean">Benchmarked</span>
         </div>
@@ -113,7 +113,7 @@ export function renderReportsScreen(container, currentData) {
                 <tr>
                   <th>Metric</th>
                   <th>Traditional Detector</th>
-                  <th>Sentinel AI</th>
+                  <th>TraceGuard</th>
                   <th>Improvement</th>
                 </tr>
               </thead>

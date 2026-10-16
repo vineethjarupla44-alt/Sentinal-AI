@@ -1,7 +1,7 @@
 {
-  "name": "sentinel-ai-frontend",
+  "name": "traceguard-frontend",
   "version": "1.0.0",
-  "description": "Sentinel AI - SOC Analyst Web Dashboard",
+  "description": "TraceGuard - SOC Analyst Web Dashboard",
   "type": "module",
   "scripts": {
     "start": "node server.js",
@@ -14,6 +14,6 @@
     "dashboard",
     "adaptive-detection"
   ],
-  "author": "Sentinel AI Team",
+  "author": "TraceGuard Team",
   "license": "Apache-2.0"
 }

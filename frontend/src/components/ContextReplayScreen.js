@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Screen 4: Adaptive Context Replay (Signature Feature)
+ * TraceGuard - Screen 4: Adaptive Context Replay (Signature Feature)
  * Distinctive before-and-after investigation experience:
  * - Dual-layer transparency: Naive Static Rule Assessment vs Context-Aware Baselining
  * - Rule contribution deltas with explicit plain-language rationale
@@ -180,7 +180,7 @@ export function renderContextReplayScreen(container, currentData, selectedIncide
 
           <!-- Stage 2: Context-Aware Adaptive Baselining Engine -->
           <div class="stage-card stage-card-context">
-            <div class="stage-badge-tag stage-context-tag">Stage 2: Sentinel AI Smart Filter</div>
+            <div class="stage-badge-tag stage-context-tag">Stage 2: TraceGuard Smart Filter</div>
             <div class="stage-score-hero">
               <div class="stage-score-number" style="color: #58D7E8;">${contextStage.adjusted_score}</div>
               <div class="stage-score-meta">

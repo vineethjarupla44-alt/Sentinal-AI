@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Forensic Report Export Service
+ * TraceGuard - Forensic Report Export Service
  * Generates structured CSV and standalone styled executive HTML audit reports.
  * 100% offline, client-side, zero-telemetry loss.
  */
@@ -68,7 +68,7 @@ export function exportIncidentsToCSV(pipelineData) {
   });
 
   const csvContent = [headers.join(','), ...rows].join('\r\n');
-  const filename = `Sentinel_AI_Forensic_Incidents_${new Date().toISOString().slice(0, 10)}.csv`;
+  const filename = `TraceGuard_Forensic_Incidents_${new Date().toISOString().slice(0, 10)}.csv`;
   downloadFile(csvContent, filename, 'text/csv;charset=utf-8;');
 }
 
@@ -107,7 +107,7 @@ export function exportExecutiveHTMLReport(pipelineData) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sentinel AI - Executive Forensic Evaluation Report</title>
+  <title>TraceGuard - Executive Forensic Evaluation Report</title>
   <style>
     body {
       background-color: #0A1517;
@@ -220,7 +220,7 @@ export function exportExecutiveHTMLReport(pipelineData) {
   <div class="container">
     <div class="header">
       <div>
-        <h1 class="title">SENTINEL AI &bull; EXECUTIVE FORENSIC REPORT</h1>
+        <h1 class="title">TRACEGUARD &bull; EXECUTIVE FORENSIC REPORT</h1>
         <p class="subtitle">Adaptive Behavioral Detection & Evidence-Preserving Baselining Evaluation</p>
       </div>
       <div class="badge">Generated: ${dateStr}</div>
@@ -269,12 +269,12 @@ export function exportExecutiveHTMLReport(pipelineData) {
     </table>
 
     <div class="footer">
-      Sentinel AI Engine &bull; Dual-Schema Compatible (Zeek & Enterprise NGFW/VPC) &bull; Offline Air-Gapped Operation
+      TraceGuard Engine &bull; Dual-Schema Compatible (Zeek & Enterprise NGFW/VPC) &bull; Offline Air-Gapped Operation
     </div>
   </div>
 </body>
 </html>`;
 
-  const filename = `Sentinel_AI_Executive_Report_${new Date().toISOString().slice(0, 10)}.html`;
+  const filename = `TraceGuard_Executive_Report_${new Date().toISOString().slice(0, 10)}.html`;
   downloadFile(html, filename, 'text/html;charset=utf-8;');
 }

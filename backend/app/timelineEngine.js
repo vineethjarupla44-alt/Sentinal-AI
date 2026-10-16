@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Chronological Incident Timeline Engine
+ * TraceGuard - Chronological Incident Timeline Engine
  * Reconstructs the end-to-end temporal attack sequence and assigns defensible
  * attack-stage hypotheses (Reconnaissance, Lateral Movement, C2, Unusual Outbound Transfer, Unclassified).
  */

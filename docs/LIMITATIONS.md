@@ -1,9 +1,9 @@
-# Sentinel AI: System Limitations & Engineering Constraints
+# TraceGuard: System Limitations & Engineering Constraints
 
 ## 1. Scope & Ethical Boundaries
-- **Offline Processing Only:** Sentinel AI is designed strictly for offline network flow log telemetry analysis. It does **not** engage in active network packet sniffing, live socket capturing (pcap), packet injection, or network scanning.
-- **Probabilistic vs Confirmed Maliciousness:** In adherence to strict SOC standards, Sentinel AI classifies events as **anomalous behavioral indicators** ranked by mathematical prioritization score (0–100). The system never claims that an unverified event is "confirmed malicious" without authoritative threat intelligence (e.g., hash matching, sandbox detonation, or endpoint telemetry).
-- **Zero Silent Pruning:** Unlike legacy IDS engines that discard suppressed alerts, Sentinel AI demotes benign lookalikes to an `INFORMATIONAL` compliance tier while preserving 100% of underlying flow records and timestamps.
+- **Offline Processing Only:** TraceGuard is designed strictly for offline network flow log telemetry analysis. It does **not** engage in active network packet sniffing, live socket capturing (pcap), packet injection, or network scanning.
+- **Probabilistic vs Confirmed Maliciousness:** In adherence to strict SOC standards, TraceGuard classifies events as **anomalous behavioral indicators** ranked by mathematical prioritization score (0–100). The system never claims that an unverified event is "confirmed malicious" without authoritative threat intelligence (e.g., hash matching, sandbox detonation, or endpoint telemetry).
+- **Zero Silent Pruning:** Unlike legacy IDS engines that discard suppressed alerts, TraceGuard demotes benign lookalikes to an `INFORMATIONAL` compliance tier while preserving 100% of underlying flow records and timestamps.
 
 ---
 

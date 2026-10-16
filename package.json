@@ -1,7 +1,7 @@
 {
-  "name": "sentinel-adaptive-detection",
+  "name": "traceguard-adaptive-detection",
   "version": "1.0.0",
-  "description": "Adaptive Network Traffic Anomaly & Behaviour Analysis Engine with Log Compatibility",
+  "description": "TraceGuard - Adaptive Network Traffic Anomaly & Behaviour Analysis Engine",
   "type": "module",
   "main": "backend/main.js",
   "scripts": {
@@ -20,6 +20,6 @@
     "soc",
     "flow-normalization"
   ],
-  "author": "Sentinel AI Team",
+  "author": "TraceGuard Team",
   "license": "Apache-2.0"
 }

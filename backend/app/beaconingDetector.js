@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Beaconing & Periodic Activity Detection Engine
+ * TraceGuard - Beaconing & Periodic Activity Detection Engine
  * Identifies automated C2 keepalives, periodic heartbeats, and irregular connection patterns.
  *
  * Calculates:

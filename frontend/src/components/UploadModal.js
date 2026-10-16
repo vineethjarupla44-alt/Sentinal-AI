@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - UploadModal Component
+ * TraceGuard - UploadModal Component
  * Modern glassmorphic modal matching Google Stitch aesthetic
  * Allows analysts to paste or upload telemetry for normalization & detection.
  */

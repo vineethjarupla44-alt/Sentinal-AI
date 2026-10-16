@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SentinelPipeline } from './app/pipeline.js';
+import { TraceGuardPipeline } from './app/pipeline.js';
 import { evaluateDetectionPerformance, generateMarkdownEvaluationReport } from './app/evaluation.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -32,10 +32,10 @@ export function runCLI() {
   const zeekPath = resolveDataset('zeek_sample_annotated.csv');
   const fwPath = resolveDataset('firewall_sample_annotated.csv');
 
-  printHeader('SENTINEL AI: ADAPTIVE DETECTION & BEHAVIOUR ANALYSIS ENGINE');
+  printHeader('TRACEGUARD: ADAPTIVE DETECTION & BEHAVIOUR ANALYSIS ENGINE');
   console.log('[*] Initializing detection pipeline with external adaptive baselines...');
 
-  const pipeline = new SentinelPipeline();
+  const pipeline = new TraceGuardPipeline();
 
   // 1. Process Zeek Dataset
   console.log(`\n[+] Running analysis on Schema 1: Zeek conn.log (${zeekPath})`);
@@ -113,7 +113,7 @@ export function runCLI() {
     }
   }
 
-  printHeader('SENTINEL AI PIPELINE EXECUTION COMPLETE');
+  printHeader('TRACEGUARD PIPELINE EXECUTION COMPLETE');
 }
 
 if (process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('backend/runAnalysis.js')) {

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SentinelPipeline } from '../../backend/app/pipeline.js';
+import { TraceGuardPipeline } from '../../backend/app/pipeline.js';
 import { evaluateDetectionPerformance } from '../../backend/app/evaluation.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,7 +16,7 @@ function getPath(rel) {
 }
 
 test('Integration Pipeline: Processes Schema 1 (Zeek) and verifies replay + metrics', () => {
-  const pipeline = new SentinelPipeline();
+  const pipeline = new TraceGuardPipeline();
   const zeekPath = getPath('datasets/synthetic/zeek_sample_annotated.csv');
   const result = pipeline.processFile(zeekPath);
 
@@ -37,7 +37,7 @@ test('Integration Pipeline: Processes Schema 1 (Zeek) and verifies replay + metr
 });
 
 test('Integration Pipeline: Processes Schema 2 (Firewall/VPC) through the same engine', () => {
-  const pipeline = new SentinelPipeline();
+  const pipeline = new TraceGuardPipeline();
   const fwPath = getPath('datasets/synthetic/firewall_sample_annotated.csv');
   const result = pipeline.processFile(fwPath);
 

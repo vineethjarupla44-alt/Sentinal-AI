@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Modern Vertical Left Sidebar Navigation
+ * TraceGuard - Modern Vertical Left Sidebar Navigation
  * Transforms the application navigation into a sleek vertical sidebar matching the Google Stitch aesthetic.
  */
 
@@ -30,7 +30,7 @@ export function renderNavigation(container, currentScreen, onNavigate, onDataset
           </div>
           <div class="nav-brand-text">
             <div class="nav-title-row">
-              <span class="nav-title">SENTINEL AI</span>
+              <span class="nav-title">TRACEGUARD</span>
               <span class="nav-badge-pill">v1.0</span>
             </div>
             <span class="nav-subtitle">Smart Threat Shield</span>

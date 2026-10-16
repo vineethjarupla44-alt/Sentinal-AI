@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Main Application Controller
+ * TraceGuard - Main Application Controller
  * Manages reactive screen routing, telemetry state synchronization,
  * API requests, and Google Stitch UI rendering across all 6 screens.
  */
@@ -91,7 +91,7 @@ function updateNav() {
  */
 function renderActiveScreen() {
   if (!currentData) {
-    setLoadingState(true, 'Connecting to Sentinel AI Engine...');
+    setLoadingState(true, 'Connecting to TraceGuard Engine...');
     return;
   }
 
@@ -202,7 +202,7 @@ async function handleRefresh() {
 async function initApp() {
   initBackground3D();
   updateNav();
-  setLoadingState(true, 'Initializing Sentinel AI detection pipeline...');
+  setLoadingState(true, 'Initializing TraceGuard detection pipeline...');
 
   try {
     // 1. Fetch Engine Status & Config
@@ -223,7 +223,7 @@ async function initApp() {
       <div class="panel-stitch" style="margin-top: 40px; text-align: center; border-color: rgba(239, 68, 68, 0.4);">
         <h2 style="color: #FFA39E; margin-bottom: 8px;">Backend Connection Offline</h2>
         <p style="color: var(--text-secondary); margin-bottom: 16px;">
-          Sentinel AI frontend could not connect to <code>http://localhost:3001</code>.<br>
+          TraceGuard frontend could not connect to <code>http://localhost:3001</code>.<br>
           Please verify that the backend engine is running with: <code>npm run backend</code>
         </p>
         <button id="retryBtn" class="btn-stitch-primary">Retry Connection</button>

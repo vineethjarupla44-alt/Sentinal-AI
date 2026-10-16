@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - Screen 2: Dataset Analysis & Dual-Schema Ingestion
+ * TraceGuard - Screen 2: Dataset Analysis & Dual-Schema Ingestion
  * - Dataset selector (Zeek Bro, Enterprise Firewall/VPC, Edge Cases)
  * - Interactive Drag-and-Drop CSV dropzone & file picker
  * - Canonical schema mapping preview

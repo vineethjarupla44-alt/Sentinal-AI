@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SentinelPipeline } from '../../backend/app/pipeline.js';
+import { TraceGuardPipeline } from '../../backend/app/pipeline.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,7 +15,7 @@ function getPath(rel) {
 }
 
 test('Configuration Dynamics: Changing detection thresholds dynamically updates rule triggers', () => {
-  const basePipeline = new SentinelPipeline();
+  const basePipeline = new TraceGuardPipeline();
   const zeekPath = getPath('datasets/synthetic/zeek_sample_annotated.csv');
   const initialResult = basePipeline.processFile(zeekPath);
 
@@ -26,7 +26,7 @@ test('Configuration Dynamics: Changing detection thresholds dynamically updates 
   const modifiedConfig = JSON.parse(JSON.stringify(basePipeline.config));
   modifiedConfig.detection_thresholds.port_scan.min_distinct_ports = 25;
 
-  const dynamicPipeline = new SentinelPipeline(modifiedConfig);
+  const dynamicPipeline = new TraceGuardPipeline(modifiedConfig);
   const updatedResult = dynamicPipeline.processFile(zeekPath);
   const updatedPortScans = updatedResult.raw_detections.filter(d => d.rule_id === 'RULE-PORT-SCAN-001');
 
@@ -34,7 +34,7 @@ test('Configuration Dynamics: Changing detection thresholds dynamically updates 
 });
 
 test('Configuration Dynamics: Adding a new approved scanner dynamically shifts incident status', () => {
-  const basePipeline = new SentinelPipeline();
+  const basePipeline = new TraceGuardPipeline();
   const zeekPath = getPath('datasets/synthetic/zeek_sample_annotated.csv');
   const result1 = basePipeline.processFile(zeekPath);
   const inc1 = result1.incidents.find(i => i.source_entity === '192.168.1.105');
@@ -50,7 +50,7 @@ test('Configuration Dynamics: Adding a new approved scanner dynamically shifts i
     max_mitigation_factor: 0.80
   });
 
-  const dynamicPipeline = new SentinelPipeline(modifiedConfig);
+  const dynamicPipeline = new TraceGuardPipeline(modifiedConfig);
   const result2 = dynamicPipeline.processFile(zeekPath);
   const inc2 = result2.incidents.find(i => i.source_entity === '192.168.1.105');
 

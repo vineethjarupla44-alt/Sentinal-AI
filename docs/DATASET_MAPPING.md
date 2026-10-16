@@ -1,7 +1,7 @@
-# Sentinel AI: Dataset Column Mapping Specification
+# TraceGuard: Dataset Column Mapping Specification
 
 ## 1. Overview
-Sentinel AI uses an externalized JSON mapping configuration ([`config/dataset_mapping.json`](file:///c:/Users/sonal/OneDrive/Desktop/Sentinal%20AI/config/dataset_mapping.json)) that enables any telemetry schema to be normalized into a single canonical internal schema: **`FlowRecord`**.
+TraceGuard uses an externalized JSON mapping configuration ([`config/dataset_mapping.json`](file:///c:/Users/sonal/OneDrive/Desktop/Sentinal%20AI/config/dataset_mapping.json)) that enables any telemetry schema to be normalized into a single canonical internal schema: **`FlowRecord`**.
 
 Adding or updating schemas requires **zero modifications to detection engine code**.
 

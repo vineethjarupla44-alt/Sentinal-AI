@@ -1,5 +1,5 @@
 /**
- * Sentinel AI - API Service Layer
+ * TraceGuard - API Service Layer
  * Connects frontend dashboard with the detection backend API.
  */
 
