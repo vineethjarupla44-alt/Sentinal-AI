@@ -223,8 +223,8 @@ async function initApp() {
       <div class="panel-stitch" style="margin-top: 40px; text-align: center; border-color: rgba(239, 68, 68, 0.4);">
         <h2 style="color: #FFA39E; margin-bottom: 8px;">Backend Connection Offline</h2>
         <p style="color: var(--text-secondary); margin-bottom: 16px;">
-          TraceGuard frontend could not connect to <code>http://localhost:3001</code>.<br>
-          Please verify that the backend engine is running with: <code>npm run backend</code>
+          TraceGuard frontend could not connect to the detection API engine.<br>
+          Please verify network connectivity or that the backend is active.
         </p>
         <button id="retryBtn" class="btn-stitch-primary">Retry Connection</button>
       </div>

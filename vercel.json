@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "outputDirectory": "frontend",
+  "cleanUrls": true,
+  "functions": {
+    "api/*.js": {
+      "includeFiles": ["config/**", "datasets/**", "backend/**"]
+    },
+    "api/**/*.js": {
+      "includeFiles": ["config/**", "datasets/**", "backend/**"]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/health",
+      "destination": "/api/health"
+    }
+  ]
+}

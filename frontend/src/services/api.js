@@ -1,16 +1,26 @@
 /**
  * TraceGuard - API Service Layer
  * Connects frontend dashboard with the detection backend API.
+ * Automatically adapts between local development and cloud production (Vercel).
  */
 
-const BACKEND_BASE = window.location.port === '3001'
-  ? ''
-  : 'http://localhost:3001';
+const isLocalDev = typeof window !== 'undefined' &&
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') &&
+  (window.location.port === '5173' || window.location.port === '5000');
+
+const BACKEND_BASE = (typeof window !== 'undefined' && window.__TRACEGUARD_API_URL__)
+  || (isLocalDev ? 'http://localhost:3001' : '');
 
 export async function fetchHealth() {
-  const res = await fetch(`${BACKEND_BASE}/health`);
-  if (!res.ok) throw new Error(`Health check failed: ${res.statusText}`);
-  return res.json();
+  try {
+    const res = await fetch(`${BACKEND_BASE}/health`);
+    if (res.ok) return res.json();
+  } catch (err) {
+    // Fall back to /api/health if /health rewrite isn't active
+  }
+  const res2 = await fetch(`${BACKEND_BASE}/api/health`);
+  if (!res2.ok) throw new Error(`Health check failed: ${res2.statusText}`);
+  return res2.json();
 }
 
 export async function fetchEngineStatus() {

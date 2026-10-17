@@ -16,10 +16,12 @@ const __dirname = path.dirname(__filename);
 
 function findConfigFile(filenameList) {
   const baseDirs = [
+    path.resolve(process.cwd(), 'config'),
     path.resolve('config'),
     path.resolve('..', 'config'),
     path.resolve(__dirname, '..', '..', 'config'),
-    path.resolve(__dirname, '..', 'config')
+    path.resolve(__dirname, '..', 'config'),
+    path.resolve(__dirname, '..', '..', '..', 'config')
   ];
 
   for (const name of filenameList) {
